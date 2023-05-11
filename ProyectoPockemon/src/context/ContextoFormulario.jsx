@@ -31,7 +31,7 @@ const reducer = (state, action) => {
         },
       };
     default:
-      break;
+      throw new Error(`Acción desconocida. ${action.type}`)
   }
 };
 
