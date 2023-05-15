@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 
 // Aqui debemos crear nuestro contexto y nuestro provider.
 export const FormContext = createContext()
@@ -45,8 +45,6 @@ export const FormContextProvider = ({children}) => {
             case ACTUALIZAR_POKEMON:
                 payload = action.payload
                 return {...state, pokemon: {...state.pokemon, [payload.name]: payload.value}}
-            default:
-            throw new Error(`Acción desconocida. ${action.type}`)
         }
     }
 
