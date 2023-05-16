@@ -1,10 +1,25 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 
-// Aqui debemos crear nuestro contexto y nuestro provider.
+/**
+ * Contexto del form que al usuarlo con useContext
+ * retorna los valores `state` y `dispatch`
+ * 
+ * El state contiene el estado del form, y con un dispatch podemos usar la funcion
+ * para modificar la funcion
+*/
+
 export const FormContext = createContext()
 
 const ACTUALIZAR_ENTRENADOR = "ACTUALIZAR_ENTRENADOR"
 const ACTUALIZAR_POKEMON = "ACTUALIZAR_POKEMON"
+
+/**
+ * Actualizar el entrenador
+ * @author MariaCavallo
+ * @param {string} name 
+ * @param {string} value 
+ * @returns
+ */
 
 export const updateEntrenador = (name, value) => {
     const action = {
@@ -17,6 +32,14 @@ export const updateEntrenador = (name, value) => {
     return action
 }
 
+/**
+ * Actualizar el pokemon
+ * @author MariaCavallo
+ * @param {string} name 
+ * @param {string} value 
+ * @returns 
+ */
+
 export const updatePokemon = (name, value) => {
     const reducedName = name.replace("Pokemon", "")
     const action = {
@@ -28,6 +51,13 @@ export const updatePokemon = (name, value) => {
     }
     return action
 }
+
+/**
+ * Proveedor de contexto del formulario
+ * @author MariaCavallo
+ * @param {object} props
+ * @returns {React.Provider<any>}
+ */
 
 export const FormContextProvider = ({children}) => {
     const emptyState = {
