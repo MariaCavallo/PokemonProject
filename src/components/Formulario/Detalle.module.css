@@ -1,0 +1,40 @@
+.formdetails {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0px 0px 4px 2px lightgray;
+    background-color: white;
+    text-align: left;
+}
+
+.body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+  
+.header {
+    max-width: 100%;
+    padding: 0.5rem;
+    background-color: #ed5564;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.formdetails section h4 {
+    margin: 0;
+    margin-bottom: 0.75rem;
+}
+
+.formdetails section p {
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.formdetails section {
+    margin-bottom: 1rem;
+}
+
+.formdetails i {
+    font-style: normal;
+    color: black;
+}

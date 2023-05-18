@@ -1,0 +1,26 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "source": {
+        "include": ["./src"],
+        "exclude": ["node_modules", "build", "dist"]
+    },
+    "plugins": [
+        "plugins/markdown"  
+    ],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true
+      },
+    "opts": {
+        "encoding": "utf8",
+        "destination": "./docs",
+        "recurse": true,
+        "verbose": true
+    },
+    "markdown": {
+        "parser": "gfm",
+        "hardwrap": true
+      }
+  }

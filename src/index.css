@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  background-color: whitesmoke;
+  font-family: "Raleway", sans-serif;
+}
+
+input, textarea, button {
+    font-family: "Raleway", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
+
