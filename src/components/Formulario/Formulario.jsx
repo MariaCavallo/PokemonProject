@@ -8,7 +8,6 @@
  * <Formulario />
  */
 
-import styles from "./Formulario.module.css"
 import React from "react";
 import { Link } from "react-router-dom";
 import pokebola from "../../assets/pokebola.png";
@@ -16,9 +15,11 @@ import entrenador from "../../assets/entrenador.png";
 import pikachu from "../../assets/pikachu.png";
 import Input from "../Input/Input";
 import Detalle from "./Detalle";
-import { docsURL } from "../../urls";
+import styles from "./Formulario.module.css"
+import SelectType from "../Select/Select";
 
 const Formulario = () => {
+
   return (
     <>
       <header className={styles.header}>
@@ -29,7 +30,7 @@ const Formulario = () => {
         {/* <Link className="volver" to="/">
           Home
         </Link> */}
-        <Link target="_blank" className={styles.link} to={docsURL}>
+        <Link target="_blank" className={styles.link} to={"https://pokemon-center-docs.vercel.app/"}>
             Documentación
         </Link>
       </header>
@@ -55,7 +56,7 @@ const Formulario = () => {
                 <span>Pokemon</span>
               </h4>
               <Input name="nombrePokemon" label="Nombre" />
-              <Input name="tipoPokemon" label="Tipo" />
+              <SelectType name="tipoPokemon" label="Tipo" />
               {/* <Input name="elementoPokemon" label="Elemento" /> */}
               <Input name="alturaPokemon" label="Altura" />
               <Input name="edadPokemon" label="Edad" />

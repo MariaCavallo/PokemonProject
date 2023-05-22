@@ -1,2 +1,2 @@
-export const githubURL = "https://github.com/melognator/project-ash"
-export const docsURL = "https://project-ash-docs.vercel.app"
+export const githubURL = "https://github.com/MariaCavallo/SpecializationFrontend"
+export const docsURL = "https://pokemon-center.vercel.app/"

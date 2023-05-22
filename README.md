@@ -3,21 +3,21 @@
 Mini-proyecto de la materia Especialización en Front End 1.
 Trata de una página web cuya función es registrar solicitudes de atención para los pokemon de los entrenadores.
 
-Demo del proyecto: https://project-ash.vercel.app
-Documentación: https://project-ash-docs.vercel.app
+Demo del proyecto: https://pokemon-center.vercel.app/
+Documentación: https://pokemon-center-docs.vercel.app/
 
 ## Instalación
 
 Para instalar el proyecto lo único que hay que hacer es clonar el repositorio, utilizando el comando `git clone` de la siguiente manera:
 
 ```
-git clone https://github.com/melognator/project-ash.git
+git clone https://github.com/MariaCavallo/SpecializationFrontend.git
 ```
 
 Una vez clonado el repositorio podremos ejecutarlo con los siguientes comandos.
 
 ```
-cd project-ash
+cd SpecializationFrontend
 npm i
 npm run dev
 ```

@@ -6,9 +6,9 @@ Aquí encontrarás como funciona cada componente del proyecto y ejemplos de como
 Utiliza la barra lateral para navegar.  
 
 #### Links
-Código fuente: [https://github.com/melognator/project-ash](https://github.com/melognator/project-ash)
-Demo del proyecto: [https://project-ash.vercel.app](https://project-ash.vercel.app)
-Documentación: [https://project-ash-docs.vercel.app](https://project-ash-docs.vercel.app)
+Código fuente: [https://github.com/MariaCavallo/SpecializationFrontend](https://github.com/MariaCavallo/SpecializationFrontend)
+Demo del proyecto: [https://pokemon-center.vercel.app/](https://pokemon-center.vercel.app/)
+Documentación: [https://pokemon-center-docs.vercel.app/](https://pokemon-center-docs.vercel.app/)
 
 #### Integrantes
 Ezequiel Melogno  

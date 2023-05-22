@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Input/Input.jsx</title>
+    <title>JSDoc: Source: components/Select/Select.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Input/Input.jsx</h1>
+    <h1 class="page-title">Source: components/Select/Select.jsx</h1>
 
     
 
@@ -27,29 +27,26 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * ## Componente Input
+ * ## Componente Select
  * Componente para renderizar un contenedor con un texto descriptivo y un input.
- * @module Input
+ * @module Select
  * @example
- * &lt;Input name="nombre" label="Nombre: " />
- * 
+ * &lt;Select name="nombre" label="Nombre: " />
  */
 
-import { useContext, useState } from "react";
-import { FormContext, updateEntrenador, updatePokemon } from "../../context/ContextoFormulario";
+import React, {useContext, useState} from 'react'
+import { useQuery } from "react-query";
 import PropTypes from 'prop-types';
-import "./InputStyles.css";
-
+import { FormContext, updatePokemon } from '../../context/ContextoFormulario';
+import './SelectStyles.css'
 
 /**
- * 
  * @param {object} props
  * @param {string} props.name `name` del input, también define el `id`
  * @param {string=} props.label Texto descriptivo del input
- * @param {string=} props.type Tipo del input, por defecto `text`
- * 
  */
-const Input = ({ name, label, type = "text" }) => {
+
+const SelectType = ({ name, label }) => {
     const { dispatch } = useContext(FormContext)
     const [value, setValue] = useState("")
 
@@ -61,35 +58,40 @@ const Input = ({ name, label, type = "text" }) => {
         e.preventDefault();
         if(e.target.name.includes("Pokemon")) {
             dispatch(updatePokemon(e.target.name, e.target.value))
-        } else {
-            dispatch(updateEntrenador(e.target.name, e.target.value))
-        }
+            }
+        };
+
+    const getTypeOfPokemon = async () => {
+        const pokeData = await fetch("https://pokeapi.co/api/v2/type/")
+            .then((response => response.json()))
+            .catch((error) => console.log(error));
+        return pokeData;
     };
+                            //! queryKey       // async function
+    const query = useQuery("getTypeOfPokemon", getTypeOfPokemon);
+    const { data } = query;
 
     return (
-        &lt;div className="input-contenedor">
+        &lt;div className="select-contenedor">
             &lt;label htmlFor={name}>{label}&lt;/label>
-            &lt;input
-                autoComplete="off"
-                type={type}
-                value={value}
-                name={name}
-                id={name}
-                onChange={onChange}
-                onBlur={onBlur}
-            />
+            &lt;select id={name} name={name} label={label} value={value} onChange={onChange} onBlur={onBlur}>
+                &lt;option defaultValue={true}>{" Tipo de pokemon "}&lt;/option>
+                {data?.results.map((item) => (
+                    &lt;option key={item.name} value={item.name}>
+                        {item.name}
+                    &lt;/option>
+                ))}
+            &lt;/select>
         &lt;/div>
     );
 };
 
-Input.propTypes = {
+SelectType.propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string,
-    type: PropTypes.string,
 }
 
-export default Input;
-</code></pre>
+export default SelectType;</code></pre>
         </article>
     </section>
 

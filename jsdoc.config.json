@@ -12,7 +12,7 @@
     "templates": {
         "cleverLinks": true,
         "monospaceLinks": true
-      },
+    },
     "opts": {
         "encoding": "utf8",
         "destination": "./docs",
@@ -22,5 +22,5 @@
     "markdown": {
         "parser": "gfm",
         "hardwrap": true
-      }
-  }
+    }
+}

@@ -35,7 +35,7 @@ const Home = () => {
         <Link to="/formularioIngreso" className="button primary-button">
             Ingresar pokemon
         </Link>
-        <a href="https://project-ash-docs.vercel.app"
+        <a href="https://pokemon-center-docs.vercel.app/"
         target="_blank"
         className="button">Ver documentación</a>
       </div>
