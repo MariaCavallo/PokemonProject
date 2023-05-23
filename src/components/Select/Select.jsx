@@ -10,6 +10,7 @@ import React, {useContext, useState} from 'react'
 import { useQuery } from "react-query";
 import PropTypes from 'prop-types';
 import { FormContext, updatePokemon } from '../../context/ContextoFormulario';
+import { getTypeOfPokemon } from './../Services/api'
 import './SelectStyles.css'
 
 /**
@@ -33,15 +34,17 @@ const SelectType = ({ name, label }) => {
             }
         };
 
-    const getTypeOfPokemon = async () => {
-        const pokeData = await fetch("https://pokeapi.co/api/v2/type/")
-            .then((response => response.json()))
-            .catch((error) => console.log(error));
-        return pokeData;
-    };
-                            //! queryKey       // async function
-    const query = useQuery("getTypeOfPokemon", getTypeOfPokemon);
-    const { data } = query;
+    const { data, isLoading, error} = useQuery({
+        queryKey: ['getTypeOfPokemon'],
+        queryFn: getTypeOfPokemon
+    });
+
+    if (isLoading) return <div>Cargando datos...</div>
+
+    if (error) return <div style={{color: "red", fontWeight: 700}}>
+        Ups! No se pudo cargar los datos.
+        <p>{JSON.stringify(error)}</p>
+    </div>
 
     return (
         <div className="select-contenedor">

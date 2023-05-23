@@ -14,17 +14,10 @@ import pokebola from "../../assets/pokebola.png";
 
 const Home = () => {
     const integrantes = [
-        "Ezequiel Melogno", 
-        "Jazmín Maldonado", 
-        "Daniela Fernanda Pipke", 
-        "Pablo Alvarez", 
-        "Damián Dellacqua", 
-        "Matias Aplanalp", 
-        "María Cavallo", 
-        "Sergio Nicolás Guerrero", 
-        "Fernanda Rodriguez", 
-        "Barbara Perdomo", 
-        "Ignacio Lopez"
+        "María Cavallo",
+        "",
+        "",
+        ""
     ]
 
   return (

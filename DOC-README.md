@@ -11,14 +11,4 @@ Demo del proyecto: [https://pokemon-center.vercel.app/](https://pokemon-center.v
 Documentación: [https://pokemon-center-docs.vercel.app/](https://pokemon-center-docs.vercel.app/)
 
 #### Integrantes
-Ezequiel Melogno  
-Jazmín Maldonado  
-Daniela Fernanda Pipke  
-Pablo Alvarez  
-Damián Dellacqua  
-Matias Aplanalp  
 María Cavallo
-Sergio Nicolás Guerrero  
-Fernanda Rodriguez  
-Barbara Perdomo  
-Ignacio Lopez  
