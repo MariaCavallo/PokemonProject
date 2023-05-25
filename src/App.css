@@ -116,21 +116,10 @@ h1 {
 }
 
 .home-members {
-    width: 100%;
-    display: grid;
-    gap: 0.25rem;
-    grid-template-columns: 1fr 1fr;
-}
-@media (min-width: 600px) {
-    .home-members {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-@media (min-width: 1024px) {
-    .home-members {
-        width: 1024px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .boton-enviar {

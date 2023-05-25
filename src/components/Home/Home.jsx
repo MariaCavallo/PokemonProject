@@ -13,12 +13,6 @@ import { Link } from "react-router-dom";
 import pokebola from "../../assets/pokebola.png";
 
 const Home = () => {
-    const integrantes = [
-        "María Cavallo",
-        "",
-        "",
-        ""
-    ]
 
   return (
     <header className="App-header">
@@ -32,9 +26,9 @@ const Home = () => {
         target="_blank"
         className="button">Ver documentación</a>
       </div>
-      <h4>Integrantes</h4>
+      <h4>Developer 👩‍💻</h4>
       <div className="home-members">
-        {integrantes.map(integrante => <p>{integrante}</p>)}
+        <p>María Cavallo</p>
       </div>
     </header>
   );

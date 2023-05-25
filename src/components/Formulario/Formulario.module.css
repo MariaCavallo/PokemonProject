@@ -45,11 +45,15 @@
     align-items: center;
 }
 
-.link {
+.volver{
+    margin-left: 35vw;
+}
+
+.link, .volver {
     font-size: 1.2rem;
 }
 
-.link:hover {
+.link:hover, .volver:hover{
     text-decoration: underline;
 }
 

@@ -8,20 +8,44 @@
  * @module Detalle
 */
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FormContext, resetForm } from "../../context/ContextoFormulario";
 import styles from "./Detalle.module.css"
 import { useNavigate } from "react-router-dom";
+import { useMutation } from 'react-query';
 
 const Detalle = () => {
+
     const { state, dispatch } = useContext(FormContext)
+
     const navigate = useNavigate()
 
-    const handleSubmit = () => {
-        alert("Enviado. Pronto procesaremos su solicitud :)")
+    const handleSubmit = async () => {
         dispatch(resetForm())
         navigate("/")
+        const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(),
+        });  
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Error al enviar el formulario")
+        }
     }
+
+    const { data, isError, isSucces } = useMutation(handleSubmit);
+    
+    useEffect(() => {
+        if (isSucces) {
+            alert(`Formulario enviado correctamente, id ${data ? data?.id : ""}`);
+        } else if (isError) {
+            alert("Error al eniviar el formulario. Por favor intente nuevamente!")
+        }
+    }, [isSucces, data, isError]);
 
     return (
         <div className={styles.formdetails}>
@@ -42,7 +66,6 @@ const Detalle = () => {
                     <div className="fila">
                         <p>Nombre: <i>{state.pokemon.nombre}</i></p>
                         <p>Tipo: <i>{state.pokemon.tipo}</i></p>
-                        {/* <p>Elemento: {state.pokemon.elemento}</p> */}
                         <p>Altura: <i>{state.pokemon.altura}</i></p>
                         <p>Edad: <i>{state.pokemon.edad}</i></p>
                     </div>

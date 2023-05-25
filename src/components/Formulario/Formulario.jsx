@@ -27,9 +27,9 @@ const Formulario = () => {
           <img src={pokebola} alt="pokebola" />
           <h1>Centro Pokemon de Ash</h1>
         </Link>
-        {/* <Link className="volver" to="/">
+        <Link className={styles.volver} to="/">
           Home
-        </Link> */}
+        </Link>
         <Link target="_blank" className={styles.link} to={"https://pokemon-center-docs.vercel.app/"}>
             Documentación
         </Link>
@@ -57,7 +57,6 @@ const Formulario = () => {
               </h4>
               <Input name="nombrePokemon" label="Nombre" />
               <SelectType name="tipoPokemon" label="Tipo" />
-              {/* <Input name="elementoPokemon" label="Elemento" /> */}
               <Input name="alturaPokemon" label="Altura" />
               <Input name="edadPokemon" label="Edad" />
             </div>
