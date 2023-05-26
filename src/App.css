@@ -8,6 +8,10 @@
   font-style: normal;
 }
 
+*{
+  font-family: "Raleway", sans-serif;
+}
+
 .App {
   text-align: center;
   /* height: 100vh; */

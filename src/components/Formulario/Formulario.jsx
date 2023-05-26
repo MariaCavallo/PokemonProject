@@ -17,6 +17,7 @@ import Input from "../Input/Input";
 import Detalle from "./Detalle";
 import styles from "./Formulario.module.css"
 import SelectType from "../Select/Select";
+import InputSpecies from "../Input/InputSpecies";
 
 const Formulario = () => {
 
@@ -31,7 +32,7 @@ const Formulario = () => {
           Home
         </Link>
         <Link target="_blank" className={styles.link} to={"https://pokemon-center-docs.vercel.app/"}>
-            Documentación
+          Documentación
         </Link>
       </header>
       <section className={styles.formcontainer}>
@@ -39,7 +40,7 @@ const Formulario = () => {
         <p>
           ¡Bienvenido! Rellena los campos para que podamos <br />encargarnos de tu querido compañero de viaje
         </p>
-        <div className={styles.formbody}>
+        <form className={styles.formbody}>
           <div className={styles.inputs}>
             <div className={styles.group}>
               <h4>
@@ -48,7 +49,7 @@ const Formulario = () => {
               </h4>
               <Input name="nombre" label="Nombre" />
               <Input name="apellido" label="Apellido" />
-              <Input name="email" label="Email" type="email" />
+              <Input  name="email" label="Email" type="email" />
             </div>
             <div className={styles.group}>
               <h4>
@@ -57,12 +58,13 @@ const Formulario = () => {
               </h4>
               <Input name="nombrePokemon" label="Nombre" />
               <SelectType name="tipoPokemon" label="Tipo" />
+              <InputSpecies name="especiePokemon" label="Especie" />
               <Input name="alturaPokemon" label="Altura" />
               <Input name="edadPokemon" label="Edad" />
             </div>
           </div>
           <Detalle />
-        </div>
+        </form>
       </section>
     </>
   );

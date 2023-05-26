@@ -34,22 +34,22 @@ const SelectType = ({ name, label }) => {
             }
         };
 
-    const { data, isLoading, error} = useQuery({
+    const { data, isLoading, isError} = useQuery({
         queryKey: ['getTypeOfPokemon'],
         queryFn: getTypeOfPokemon
     });
 
     if (isLoading) return <div>Cargando datos...</div>
 
-    if (error) return <div style={{color: "red", fontWeight: 700}}>
+    if (isError) return <div style={{color: "red", fontWeight: 700}}>
         Ups! No se pudo cargar los datos.
-        <p>{JSON.stringify(error)}</p>
+        <p>{JSON.stringify(isError)}</p>
     </div>
 
     return (
         <div className="select-contenedor">
             <label htmlFor={name}>{label}</label>
-            <select id={name} name={name} label={label} value={value} onChange={onChange} onBlur={onBlur}>
+            <select id={name} name={name} label={label} value={value} onChange={onChange} onBlur={onBlur} disabled={isError || isLoading}>
                 <option defaultValue={true}>{" Tipo de pokemon "}</option>
                 {data?.results.map((item) => (
                     <option key={item.name} value={item.name}>
