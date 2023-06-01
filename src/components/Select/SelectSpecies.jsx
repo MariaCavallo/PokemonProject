@@ -1,50 +1,80 @@
-import React, { useState, useContext } from "react";
-import { FormContext, updatePokemon } from "../../context/ContextoFormulario";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { getSpeciesOfPokemon } from "../Services/api";
-import  PropTypes from 'prop-types'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import PropTypes from 'prop-types'
 import './SpeciesStyles.css'
 
 
 const SelectSpecies = ({ name, label }) => {
 
-    const { dispatch } = useContext(FormContext);
-    const [value, setValue] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+    const [speciesOffset, setSpeciesOffset] = useState(1);
 
-    const onChange = (e) => {
-        setValue(e.target.value)
-    };
-
-    const onBlur = (e) => {
-        e.preventDefault();
-        if(e.target.name.includes("Pokemon")) {
-            dispatch(updatePokemon(e.target.name, e.target.value))
-            }
-        };
-    
     const { data, isLoading, isError } = useQuery({
-        queryKey: ["especies"],
-        queryFn: getSpeciesOfPokemon
+        queryKey: ["especies", speciesOffset],
+        queryFn: getSpeciesOfPokemon,
     });
 
-    if (isLoading) return <div>Cargando datos...</div>
+    const openPopup = (e) => {
+        e.preventDefault();
+        setIsOpen(true);
+    }
 
-    if (isError) return <div style={{color: "red", fontWeight: 700}}>
-        Ups! No se pudo cargar los datos.
-        <p>{JSON.stringify(isError)}</p>
-    </div>
+    const closePopup = () => {
+        setIsOpen(false);
+    }
+
+    const selectSpecie = (e) => {
+        e.preventDefault();
+    }
 
     return (
         <div className="species-container">
+            {isOpen && (
+                <div className="popup-especie">
+                    <h4>Seleccionar Especie</h4>
+                    <div className="contendor-especies">
+                        {data && data.results?.map((especie) => (
+                            <button
+                                key={especie.name}
+                                className="botones-especie"
+                                onClick={selectSpecie}
+                            >
+                                {especie.name}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="paginador">
+                        <button
+                            className="boton-cerrar"
+                            onClick={closePopup}
+                        >
+                            X
+                        </button>
+                        <button 
+                            className="boton-anterior"
+                            disabled={speciesOffset <=0 ? true : false}
+                            onClick={() => setSpeciesOffset(speciesOffset - 20)}
+                        >
+                            <FaArrowLeft/>
+                        </button>
+                        <button
+                            className="boton-siguiente"
+                            onClick={() => setSpeciesOffset(speciesOffset + 20)}
+                        >
+                            <FaArrowRight />
+                        </button>
+                    </div>
+                </div>
+            )}
             <label htmlFor={name}>{label}</label>
-            <select name={name} id={name} label={label} value={value} onChange={onChange} onBlur={onBlur} disabled={isError || isLoading}>
-                <option defaultValue={true}>{"Especie"}</option>
-                {data?.results.map((item) => (
-                    <option key={item.name} value={item.name}>
-                        {item.name}
-                    </option>
-                ))}
-            </select>
+            <button
+                className="boton-seleccionar-especie"
+                onClick={openPopup}
+            >
+                Seleccionar
+            </button>
         </div>
     );
 };

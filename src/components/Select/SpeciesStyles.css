@@ -1,4 +1,4 @@
-.species-container select{
+.species-container button {
     text-decoration: none;
     font-size: 1.25rem;
     padding: 0.75rem;
@@ -14,12 +14,12 @@
     color: #ed5564;
 }
 
-.species-container select:hover{
+.species-container button:hover {
     border: 1px solid rgb(0, 0, 0);
     box-shadow: 0px 0px 20px -17px;
 }
 
-.species-container select:active{
+.species-container button:active {
     transform: scale(0.95);
 }
 
@@ -30,12 +30,88 @@
     width: 100%;
 }
 
-.species-container label{
+.species-container label {
     font-size: 1.25rem;
 }
 
-@media (max-width: 1024px) and (min-width: 300px){
-    .species-container{
+.popup-especie {
+    width: 30vw;
+    height: 60vh;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+    border-radius: 12px;
+    border: 2px solid lightgrey;
+    box-shadow: 3px 3px 3px 3px darkgray;
+}
+
+.contenedor-especies {
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.boton-seleccionar-especies {
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.boton-seleccionar-especies:hover {
+    background-color: lightgray;
+}
+
+.botones-especie {
+    margin: 0.5rem;
+    padding: 0.6rem;
+    border-radius: 10px;
+    background-color: #ed5564;
+    color: whitesmoke;
+    cursor: pointer;
+    border: 2px solid #ed5564;
+    box-shadow: 2px 2px 2px 2px darkgray;
+}
+
+.botones-especie:hover {
+    box-shadow: none;
+}
+
+.paginador {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-anterior,
+.boton-siguiente,
+.boton-cerrar {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    color: #ed5564;
+    cursor: pointer;
+    border: 2px solid #ed5564;
+    box-shadow: 2px 2px 2px 2px darkgray;
+}
+
+.boton-anterior:hover,
+.boton-siguiente:hover,
+.boton-cerrar:hover {
+    background-color: #ed5564;
+    color: whitesmoke;
+    box-shadow: none;
+}
+
+.boton-anterior {
+    margin-right: 1rem;
+}
+
+@media (max-width: 1024px) and (min-width: 300px) {
+    .species-container {
         flex-direction: column;
         align-items: flex-start;
         width: 125%;
@@ -48,11 +124,11 @@
         align-items: center;
     }
 
-    .species-container select {
+    .species-container button {
         width: calc(100% - 6rem);
     }
 }
 
-.species-container select:focus {
+.species-container button:focus {
     border: 1px solid grey;
 }
