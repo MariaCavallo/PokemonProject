@@ -51,7 +51,10 @@ const Detalle = () => {
                     </div>
                 </section>
                 <div>
-                    {isError && <p>No hemos podido enviar el formulario, por favor intente nuevamente!</p>}
+                    {isError && (
+                        <p>No hemos podido enviar el formulario, por favor intente nuevamente!</p>
+                    )}
+                    {isLoading && <p>Enviando Formulario</p>}
                 </div>
                 <button
                     className="button primary-button"

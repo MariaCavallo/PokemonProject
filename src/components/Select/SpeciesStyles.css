@@ -1,49 +1,58 @@
-.select-contenedor select {
+.species-container select{
     text-decoration: none;
     font-size: 1.25rem;
     padding: 0.75rem;
     outline: none;
     border: 1.5px solid lightgrey;
+    background-color: white;
     border-radius: 4px;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 0px 0px 20px -18px;
     box-sizing: border-box;
     color: #ed5564;
 }
 
-.select-contenedor select:hover {
+.species-container select:hover{
     border: 1px solid rgb(0, 0, 0);
     box-shadow: 0px 0px 20px -17px;
 }
 
-.select-contenedor select:active {
+.species-container select:active{
     transform: scale(0.95);
 }
 
-.select-contenedor {
+.species-container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
 }
 
-.select-contenedor label {
+.species-container label{
     font-size: 1.25rem;
 }
 
+@media (max-width: 1024px) and (min-width: 300px){
+    .species-container{
+        flex-direction: column;
+        align-items: flex-start;
+        width: 125%;
+    }
+}
+
 @media (min-width: 1024px) {
-    .select-contenedor {
+    .species-container {
         flex-direction: row;
         align-items: center;
     }
 
-    .select-contenedor select {
+    .species-container select {
         width: calc(100% - 6rem);
     }
 }
 
-.select-contenedor select:focus {
+.species-container select:focus {
     border: 1px solid grey;
 }

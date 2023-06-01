@@ -17,7 +17,7 @@ import Input from "../Input/Input";
 import Detalle from "./Detalle";
 import styles from "./Formulario.module.css"
 import SelectType from "../Select/Select";
-import InputSpecies from "../Input/InputSpecies";
+import SelectSpecies from "../Select/SelectSpecies"
 
 const Formulario = () => {
 
@@ -58,7 +58,7 @@ const Formulario = () => {
               </h4>
               <Input name="nombrePokemon" label="Nombre" />
               <SelectType name="tipoPokemon" label="Tipo" />
-              <InputSpecies name="especiePokemon" label="Especie" />
+              <SelectSpecies name="especiePokemon" label="Especie" />
               <Input name="alturaPokemon" label="Altura" />
               <Input name="edadPokemon" label="Edad" />
             </div>
