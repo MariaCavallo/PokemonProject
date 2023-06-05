@@ -6,7 +6,7 @@ Aquí encontrarás como funciona cada componente del proyecto y ejemplos de como
 Utiliza la barra lateral para navegar.  
 
 #### Links
-Código fuente: [https://github.com/MariaCavallo/SpecializationFrontend](https://github.com/MariaCavallo/SpecializationFrontend)
+Código fuente: [https://github.com/MariaCavallo/PokemonProject](https://github.com/MariaCavallo/PokemonProject)
 Demo del proyecto: [https://pokemon-center.vercel.app/](https://pokemon-center.vercel.app/)
 Documentación: [https://pokemon-center-docs.vercel.app/](https://pokemon-center-docs.vercel.app/)
 
