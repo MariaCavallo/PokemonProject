@@ -3,7 +3,7 @@
 Mini-proyecto de la materia Especialización en Front End 1.
 Trata de una página web cuya función es registrar solicitudes de atención para los pokemon de los entrenadores.
 
-Demo del proyecto: https://pokemon-center.vercel.app/
+Demo del proyecto: https://pokemon-center-2wi510o1f-mariacavallo.vercel.app/
 Documentación: https://pokemon-center-docs.vercel.app/
 
 ## Instalación
