@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useQuery } from "react-query";
 import { getSpeciesOfPokemon } from "../Services/api";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { FormContext } from "../../context/ContextoFormulario";
 import PropTypes from 'prop-types'
 import './SpeciesStyles.css'
 
 
 const SelectSpecies = ({ name, label }) => {
 
+    const { dispatch } = useContext(FormContext)
     const [isOpen, setIsOpen] = useState(false);
-    const [speciesOffset, setSpeciesOffset] = useState(1);
+    const [speciesOffset, setSpeciesOffset] = useState(0);
+    const [selected, setSelected] = useState(null);
 
     const { data, isLoading, isError } = useQuery({
         queryKey: ["especies", speciesOffset],
@@ -25,8 +28,10 @@ const SelectSpecies = ({ name, label }) => {
         setIsOpen(false);
     }
 
-    const selectSpecie = (e) => {
-        e.preventDefault();
+    const selectSpecie = (especie) => {
+        setSelected(especie);
+        dispatch({ type: 'ACTUALIZAR_POKEMON', payload: { name: 'especie', value: especie.name } });
+        closePopup();
     }
 
     return (
@@ -35,16 +40,17 @@ const SelectSpecies = ({ name, label }) => {
                 <div className="popup-especie">
                     <h4>Seleccionar Especie</h4>
                     <div className="contendor-especies">
-                        {data && data.results?.map((especie) => (
+                        {data && data?.map((especie) => (
                             <button
                                 key={especie.name}
-                                className="botones-especie"
-                                onClick={selectSpecie}
+                                className="select-species"
+                                onClick={() => selectSpecie(especie)}
                             >
                                 {especie.name}
                             </button>
                         ))}
                     </div>
+                    {isLoading ? <p>Cargando datos...</p> : null}
                     <div className="paginador">
                         <button
                             className="boton-cerrar"
@@ -52,12 +58,12 @@ const SelectSpecies = ({ name, label }) => {
                         >
                             X
                         </button>
-                        <button 
+                        <button
                             className="boton-anterior"
-                            disabled={speciesOffset <=0 ? true : false}
+                            disabled={speciesOffset <= 0 ? true : false}
                             onClick={() => setSpeciesOffset(speciesOffset - 20)}
                         >
-                            <FaArrowLeft/>
+                            <FaArrowLeft />
                         </button>
                         <button
                             className="boton-siguiente"
@@ -72,8 +78,9 @@ const SelectSpecies = ({ name, label }) => {
             <button
                 className="boton-seleccionar-especie"
                 onClick={openPopup}
+                disabled={isError || isLoading}
             >
-                Seleccionar
+                {selected ? selected.name : "Seleccionar"}
             </button>
         </div>
     );
@@ -81,7 +88,7 @@ const SelectSpecies = ({ name, label }) => {
 
 SelectSpecies.propTypes = {
     name: PropTypes.string.isRequired,
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
 }
 
 export default SelectSpecies;

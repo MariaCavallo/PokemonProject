@@ -63,7 +63,7 @@ const SelectType = ({ name, label }) => {
 
 SelectType.propTypes = {
     name: PropTypes.string.isRequired,
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
 }
 
 export default SelectType;
