@@ -11,7 +11,7 @@ Documentación: https://pokemon-center-docs.vercel.app/
 Para instalar el proyecto lo único que hay que hacer es clonar el repositorio, utilizando el comando `git clone` de la siguiente manera:
 
 ```
-git clone https://github.com/MariaCavallo/SpecializationFrontend.git
+git clone https://github.com/MariaCavallo/PokemonProject
 ```
 
 Una vez clonado el repositorio podremos ejecutarlo con los siguientes comandos.
