@@ -34,6 +34,16 @@ const SelectSpecies = ({ name, label }) => {
         closePopup();
     }
 
+    const next = (e) => {
+        e.preventDefault();
+        setSpeciesOffset(speciesOffset + 20);
+    }
+
+    const prev = (e) => {
+        e.preventDefault();
+        setSpeciesOffset(speciesOffset - 20);
+    }
+
     return (
         <div className="species-container">
             {isOpen && (
@@ -61,13 +71,13 @@ const SelectSpecies = ({ name, label }) => {
                         <button
                             className="boton-anterior"
                             disabled={speciesOffset <= 0 ? true : false}
-                            onClick={() => setSpeciesOffset(speciesOffset - 20)}
+                            onClick={prev}
                         >
                             <FaArrowLeft />
                         </button>
                         <button
                             className="boton-siguiente"
-                            onClick={() => setSpeciesOffset(speciesOffset + 20)}
+                            onClick={next}
                         >
                             <FaArrowRight />
                         </button>
