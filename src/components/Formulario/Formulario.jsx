@@ -26,7 +26,7 @@ const Formulario = () => {
       <header className={styles.header}>
         <Link to="/" className={styles.brand}>
           <img src={pokebola} alt="pokebola" />
-          <h1>Centro Pokemon de Ash</h1>
+          <h1>Centro Pokemon</h1>
         </Link>
         <Link className={styles.volver} to="/">
           Home
