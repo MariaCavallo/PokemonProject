@@ -35,8 +35,8 @@
 }
 
 .popup-especie {
-    width: 32vw;
-    height: 45vh;
+    width: 29vw;
+    height: 70vh;
     position: absolute;
     top: 80%;
     left: 50%;
@@ -45,6 +45,13 @@
     border-radius: 12px;
     border: 2px solid lightgrey;
     box-shadow: 3px 3px 3px 3px darkgray;
+}
+
+.popup-especie h4 {
+    font-size: 1.5rem;
+    font-style: oblique;
+    display: flex;
+    justify-content: center;
 }
 
 .contenedor-especies {
